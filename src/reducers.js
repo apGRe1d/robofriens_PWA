@@ -11,7 +11,7 @@ export const searchRobots = (state = initialState, action = {}) => {
     case CHANGE_SEARCH_FIELD:
       return {...state, searchField: action.payload};
     case FETCH_ROBOTS:
-      return {...state, robots: action.payload};
+      return {...state, robots: action.payload, error: action.error};
     default:
       return state
   }

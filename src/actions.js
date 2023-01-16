@@ -13,14 +13,20 @@ export const requestRobots = (httpString) => (dispatch) => {
       return response.json();
     })
     .then(robots => {
-      setTimeout(() => {
-        dispatch({
-          type: FETCH_ROBOTS,
-          payload: robots
-        });
-      }, 3000)
-    }).catch(err => {
-      console.log(err);
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          if (!Object.keys(robots).length) {
+           return rej(new Error('ERROOOOOORR 404'));
+          }
+          dispatch({
+            type: FETCH_ROBOTS,
+            payload: robots
+          });
+        }, 2000);
+      });
+    })
+    .catch(err => {
+      console.log('CATCH', err);
       dispatch({
         type: FETCH_ROBOTS,
         payload: [],

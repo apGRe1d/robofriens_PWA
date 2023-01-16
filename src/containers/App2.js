@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
@@ -13,7 +13,8 @@ import CounterButton from '../components/CounterButton';
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchRobots.searchField,
-    robots: state.searchRobots.robots
+    robots: state.searchRobots.robots,
+    error: state.searchRobots.error
   }
 }
 
@@ -26,17 +27,16 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const App2 = (props) => {
-  const { searchField, robots, onSearchChange, fetchRobots } = props;
+  const { searchField, robots, onSearchChange, fetchRobots, error } = props;
 
   useEffect(() => {
     fetchRobots('https://jsonplaceholder.typicode.com/users')
   }, []);
-
   const filteredRobots = robots.filter(robot =>{
     return robot.name.toLowerCase().includes(searchField.toLowerCase());
   });
 
-  return !robots.length
+  return !robots.length && !error
     ? <h1>Loading...</h1>
     : (
       <div className='tc'>
