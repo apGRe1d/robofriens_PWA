@@ -15,14 +15,17 @@ import thunk from 'redux-thunk';
 
 
 
-// console.log({thunk})
+const middleWares = [thunk];
+const devMode = process.env.NODE_ENV === 'development';
+if (devMode) {
+  const logger = createLogger();
+  middleWares.push(logger);
+}
 
-
-const logger = createLogger();
 const store = createStore(
   combinedReducers,
   composeWithDevTools(
-    applyMiddleware(logger, thunk)
+    applyMiddleware(...middleWares)
   )
 );
 
