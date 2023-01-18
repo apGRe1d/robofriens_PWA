@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/robofriens_PWA/static/css/main.d49ecb1c.css",
-    "main.js": "/robofriens_PWA/static/js/main.6385f256.js",
+    "main.js": "/robofriens_PWA/static/js/main.d3c64ad3.js",
     "service-worker.js": "/robofriens_PWA/service-worker.js",
     "static/media/SEGA.woff": "/robofriens_PWA/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
     "index.html": "/robofriens_PWA/index.html",
     "main.d49ecb1c.css.map": "/robofriens_PWA/static/css/main.d49ecb1c.css.map",
-    "main.6385f256.js.map": "/robofriens_PWA/static/js/main.6385f256.js.map"
+    "main.d3c64ad3.js.map": "/robofriens_PWA/static/js/main.d3c64ad3.js.map"
   },
   "entrypoints": [
     "static/css/main.d49ecb1c.css",
-    "static/js/main.6385f256.js"
+    "static/js/main.d3c64ad3.js"
   ]
 }
