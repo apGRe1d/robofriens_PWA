@@ -13,3 +13,11 @@ h1 {
   font-weight: 200;
   color: #0ccac4;
 }
+
+@media screen and (max-width: 540px){
+
+  .f1 {
+    font-size: 2rem;
+  }
+
+}
