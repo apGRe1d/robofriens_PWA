@@ -20,13 +20,24 @@ import React from 'react';
 // }
 
 const Card = ({ name, email, id }) => {
-  let imageSide = '200';
-  if (screen.width > 1920) {
-    imageSide = '400';
-  }
   return (
     <div className='tc grow bg-light-green br3 pa3 ma2 dib bw2 shadow-5'>
-      <img alt='robots' src={`https://robohash.org/${id}.avif?size=${imageSide}x${imageSide}`} width={`${imageSide}px`} height={`${imageSide}px`} />
+      <picture>
+        <source
+          type="image/avif"
+          srcSet={`
+            https://robohash.org/${id}.avif 200w,
+            https://robohash.org/${id}.avif 300w,
+            https://robohash.org/${id}.avif 400w,
+          `}
+          width={'200px'}
+          height={'200px'}
+        />
+        <img
+          className={'robot-image'}
+          alt='robots'
+        />
+      </picture>
       <div>
         <h2>{name}</h2>
         <p>{email}</p>
