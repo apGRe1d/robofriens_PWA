@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://apGRe1d.github.io/robofriens_PWA",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "dependencies": {
     "gh-pages": "^4.0.0",
     "react": "^17.0.2",
@@ -48,6 +53,11 @@
     ]
   },
   "devDependencies": {
-    "@welldone-software/why-did-you-render": "^7.0.1"
+    "@welldone-software/why-did-you-render": "^7.0.1",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
+    "redux-mock-store": "^1.5.4",
+    "sinon": "^15.0.1"
   }
 }

@@ -13,8 +13,9 @@ import CounterButton from '../components/CounterButton';
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchRobots.searchField,
-    robots: state.searchRobots.robots,
-    error: state.searchRobots.error
+    robots: state.requestRobots.robots,
+    error: state.requestRobots.error,
+    isPending: state.requestRobots.isPending
   }
 }
 
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const App2 = (props) => {
-  const { searchField, robots, onSearchChange, fetchRobots, error } = props;
+  const { searchField, robots, onSearchChange, fetchRobots, error, isPending } = props;
 
   useEffect(() => {
     fetchRobots('https://jsonplaceholder.typicode.com/users')
@@ -36,7 +37,7 @@ const App2 = (props) => {
     return robot.name.toLowerCase().includes(searchField.toLowerCase());
   });
 
-  return !robots.length && !error
+  return isPending
     ? <h1>Loading...</h1>
     : (
       <div className='tc'>
@@ -45,7 +46,7 @@ const App2 = (props) => {
         <CounterButton style={{width: '100%'}} />
         <Scroll>
           <ErrorBoundary>
-            <CardList robots={filteredRobots} />
+            <CardList robots={filteredRobots} error={error}/>
           </ErrorBoundary>
         </Scroll>
       </div>
